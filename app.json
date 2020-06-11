@@ -1,0 +1,17 @@
+{
+  "name": "DocExpress",
+  "displayName": "DocExpress",
+  "expo": {
+    "name": "DocExpress",
+    "slug": "DocExpress",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
