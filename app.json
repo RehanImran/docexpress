@@ -12,6 +12,8 @@
     ],
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "description": "A Mobile application to create and Track Official Documents.\n",
+    "githubUrl": "https://github.com/RehanImran/docexpress"
   }
 }
