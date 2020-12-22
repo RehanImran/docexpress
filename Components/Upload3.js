@@ -3,7 +3,7 @@ import { Button, Image, View, TouchableOpacity } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import Constants from "expo-constants";
 
-export default function Upload(props) {
+export default function Upload3(props) {
   const [image, setImage] = useState(null);
 
   useEffect(() => {
@@ -49,10 +49,10 @@ export default function Upload(props) {
       )}
       <Button
         style={{ paddingTop: 50 }}
-        title="Next"
+        title="Finish"
         onPress={() => {
           console.log(props.navigation.actions);
-          props.navigation.navigate("Upload(2/3)");
+          props.navigation.navigate("Confirmation");
         }}
       />
     </View>

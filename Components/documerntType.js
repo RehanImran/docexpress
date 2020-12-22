@@ -34,20 +34,10 @@ import SearchableDropdown from "react-native-searchable-dropdown";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 var items = [
-  { id: 1, name: "Rehan Imran" },
-  { id: 2, name: "Tayyab Mir" },
-  { id: 3, name: "Usman Bokhari" },
-  { id: 4, name: "Baseer Ahmed" },
-  { id: 5, name: "Haziq Mumtaz" },
-  { id: 6, name: "Osama Imran" },
-  { id: 7, name: "Marya Bokhari" },
-  { id: 8, name: "Saad Rafiq" },
-  { id: 9, name: "Shoaib Amjad" },
-  { id: 10, name: "Kadir Khan" },
-  { id: 11, name: "Sawaira Ashraf" },
-  { id: 12, name: "Rubab Ameen" },
-  { id: 13, name: "Abiha Aftab" },
-  { id: 14, name: "Sabiha Ashraf" },
+  { id: 1, name: "Appeal" },
+  { id: 2, name: "Transfer" },
+  { id: 3, name: "Appearence" },
+  
 ];
 
 export default class ForwardDocument extends Component {

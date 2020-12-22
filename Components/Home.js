@@ -13,7 +13,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 //import Header from "./Header";
 //import { getConnection, ARRAY } from 'oracledb';
 //import Select from '../Database/Select';
-export default class Login extends Component {
+export default class Home extends Component {
   render() {
     return (
       <ScrollView style={styles.scrollContainer}>

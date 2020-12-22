@@ -9,10 +9,9 @@ import {
   FlatList,
 } from "react-native";
 import Header from "./Header";
-
 //var server=require('../Server/Server')
 //var user='officer';
-var user = "officer";
+var user = "manager";
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -27,32 +26,18 @@ export default class Login extends Component {
         const users=await response.json();
         this.setState({data: users});
     }*/
-  checkLogin() {
+  varify() {
     console.log(this.state);
-    const { username = "", password = "" } = this.state;
-    if (username == "1234" && password == "admin" && user == "officer") {
+    const { opassword = "", npassword = "",rnpassword = "" } = this.state;
+    if (opassword=="admin1" && npassword==rnpassword) {
       try {
-        this.props.navigation.navigate("Home");
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    else if(username == "1234" && password == "admin" && user == "manager"){
-      try {
-        this.props.navigation.navigate("HomeM");
-      } catch (err) {
-        console.log(err);
-      }
-    } 
-    else if(username == "1234" && password == "admin" && user == "admin"){
-      try {
-        this.props.navigation.navigate("HomeAd");
+        this.props.navigation.navigate("Confirmation");
       } catch (err) {
         console.log(err);
       }
     } 
     else {
-      Alert.alert("Error. Username/Password incorrect", ""[{ text: "okey" }]);
+      Alert.alert("Incorrenct Field/s", ""[{ text: "okey" }]);
     }
   }
 
@@ -77,35 +62,34 @@ export default class Login extends Component {
         </View>
         <View style={styles.formContainer}>
           <TextInput
-            placeholder="Enter ID"
-            onChangeText={(uname) => this.setState({ username: uname })}
+            placeholder="Enter Current Password"
+            onChangeText={(opass) => this.setState({ opassword: opass })}
             keyboardType="numeric"
             style={styles.input}
           />
           <TextInput
-            placeholder="Enter Password"
-            onChangeText={(pass) => this.setState({ password: pass })}
+            placeholder="Enter New Password"
+            onChangeText={(npass) => this.setState({ npassword: npass })}
+            secureTextEntry
+            style={styles.input}
+          />
+           <TextInput
+            placeholder="Re-Enter New Password"
+            onChangeText={(rnpass) => this.setState({ rnpassword: rnpass })}
             secureTextEntry
             style={styles.input}
           />
 
           <Button
             style={styles.buttonContainer}
-            title={"LOGIN"}
-            onPress={() => this.checkLogin()}
+            title={"Change Password"}
+            onPress={() => this.varify()}
           />
 
           <View style={styles.messageContainer}>
             <Text style={styles.title}>
               To reset password please contact Admin
             </Text>
-          </View>
-          <View style={styles.applicant}>
-          <Button
-            style={styles.buttonContainer}
-            title={"Click Here to Login as Applicant"}
-            onPress={() => this.props.navigation.navigate("Applicant Login")}
-          />
           </View>
         </View>
       </View>
@@ -117,9 +101,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#5a66c5",
-  },
-  applicant:{
-    paddingTop:20,
   },
   logoContainer: {
     alignItems: "center",

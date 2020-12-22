@@ -34,7 +34,7 @@ import SearchableDropdown from "react-native-searchable-dropdown";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 var items = [
-  { id: 1, name: "Rehan Imran" },
+  { id: 1, name: "Rehan Imran",designation:"Manager",Department:"officer" },
   { id: 2, name: "Tayyab Mir" },
   { id: 3, name: "Usman Bokhari" },
   { id: 4, name: "Baseer Ahmed" },
@@ -100,7 +100,14 @@ export default class ForwardDocument extends Component {
           <Button
             style={styles.buttonContainer}
             title={"Next"}
-            onPress={() => this.props.navigation.navigate("Through")}
+            onPress={() => this.props.navigation.navigate("Select Document")}
+          />
+        </View>
+        <View style={styles.buttoncontainerrr}>
+          <Button
+            style={styles.buttonContainer}
+            title={"Skip"}
+            onPress={() => this.props.navigation.navigate("Select Document")}
           />
         </View>
       </View>
@@ -116,9 +123,13 @@ const styles = StyleSheet.create({
     
   },
   buttoncontainerr:{
-    paddingBottom:300,
+    paddingBottom:20,
     paddingLeft:20,
     paddingRight:20,
   },
-  
+  buttoncontainerrr:{
+    paddingBottom:300,
+    paddingLeft:20,
+    paddingRight:20,
+  }
 });

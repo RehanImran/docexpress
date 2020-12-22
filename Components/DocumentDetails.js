@@ -26,6 +26,7 @@ import {
   Text,
   StyleSheet,
   Button,
+  TextInput,
   SafeAreaView,
   TouchableOpacity,
 } from "react-native";
@@ -34,26 +35,24 @@ import SearchableDropdown from "react-native-searchable-dropdown";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 var items = [
-  { id: 1, name: "Rehan Imran" },
-  { id: 2, name: "Tayyab Mir" },
-  { id: 3, name: "Usman Bokhari" },
-  { id: 4, name: "Baseer Ahmed" },
-  { id: 5, name: "Haziq Mumtaz" },
-  { id: 6, name: "Osama Imran" },
-  { id: 7, name: "Marya Bokhari" },
-  { id: 8, name: "Saad Rafiq" },
-  { id: 9, name: "Shoaib Amjad" },
-  { id: 10, name: "Kadir Khan" },
-  { id: 11, name: "Sawaira Ashraf" },
-  { id: 12, name: "Rubab Ameen" },
-  { id: 13, name: "Abiha Aftab" },
-  { id: 14, name: "Sabiha Ashraf" },
+  { id: 1, name: "Appeal" },
+  { id: 2, name: "Transfer" },
+  { id: 3, name: "Hearing" },
+
+
 ];
 
-export default class ForwardDocument extends Component {
+export default class DocumentDetails extends Component {
+check(){
+  const {password = "" } = this.state;
+  if(password>0){
+    this.props.navigation.navigate("Confirmation")
+  }
+}
+
   render() {
     return (
-      <View style={{ flex: 1, marginTop: 30, paddingTop: 20 }}>
+      <View style={{ flex: 1, marginTop: 30, paddingTop: 0 }}>
         <SafeAreaView style={{ flex: 1 }}>
           <TouchableOpacity
             style={{ alignItems: "flex-end", margin: 16 }}
@@ -92,15 +91,20 @@ export default class ForwardDocument extends Component {
           }}
           items={items}
           //defaultIndex={2}
-          placeholder="Send To"
+          placeholder="Document Type"
           resetValue={false}
           underlineColorAndroid="transparent"
         />
+        <TextInput
+            placeholder="Document Count"
+            onChangeText={(pass) => this.setState({ password: pass })}
+            style={styles.input}
+          />
         <View style={styles.buttoncontainerr}>
           <Button
             style={styles.buttonContainer}
             title={"Next"}
-            onPress={() => this.props.navigation.navigate("Through")}
+            onPress={() => this.check()}
           />
         </View>
       </View>
@@ -120,5 +124,10 @@ const styles = StyleSheet.create({
     paddingLeft:20,
     paddingRight:20,
   },
-  
+  input: {
+    alignItems: "flex-end",
+     margin: 16,
+     paddingLeft:10,
+     paddingRight:10,
+  },
 });

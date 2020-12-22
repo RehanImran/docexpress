@@ -1,9 +1,24 @@
 import React, { Component } from "react";
-import { StyleSheet, View, TextInput, Text, Button, Alert } from "react-native";
+import {
+  StyleSheet,
+  View,
+  TextInput,
+  ScrollView,
+  Text,
+  Button,
+  Alert,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
 import Header from "./Header";
+import { FontAwesome5 } from "@expo/vector-icons";
 //import { getConnection, ARRAY } from 'oracledb';
 //import Select from '../Database/Select';
 export default class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   registerapplicant() {
     const {
       CNIC = "",
@@ -22,13 +37,26 @@ export default class Login extends Component {
         Alert.alert("Incorrect CNIC and Contact", ""[{ text: "okey" }]);
       }
     } else {
-      this.props.navigation.navigate("Confirmation");
+      this.props.navigation.navigate("Make Choice");
     }
   }
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
+        <SafeAreaView style={{ flex: 1 }}>
+          <TouchableOpacity
+            style={{ alignItems: "flex-end", margin: 16 }}
+            onPress={this.props.navigation.openDrawer}
+          >
+            <FontAwesome5
+              style={{ paddingTop: 20 }}
+              name="bars"
+              size={24}
+              color="#ffffff"
+            />
+          </TouchableOpacity>
+        </SafeAreaView>
         <View style={styles.logoContainer}>
           <Header />
         </View>
@@ -78,7 +106,7 @@ export default class Login extends Component {
             </Text>
           </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
